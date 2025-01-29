@@ -1,0 +1,25 @@
+# 🗂️ Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ⚙️ Environnement
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# 📦 Build & Cache
+dist/
+build/
+.cache/
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# 🏗️ Webpack et dépendances
+coverage/
+*.lock
