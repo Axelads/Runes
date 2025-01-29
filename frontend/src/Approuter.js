@@ -9,13 +9,16 @@ import PageTransition from "./components/PageTransition";
 
 const AppRouter = () => {
   return (
-    <Routes>
-      <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-      <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-      <Route path="/events" element={<PageTransition><Events /></PageTransition>} />
-      <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-      <Route path="/news" element={<PageTransition><News /></PageTransition>} />
-    </Routes>
+    <>
+      
+      <Routes>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/events" element={<PageTransition><Events /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/news" element={<PageTransition><News /></PageTransition>} />
+      </Routes>
+    </>
   );
 };
 

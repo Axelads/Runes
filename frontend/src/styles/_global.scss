@@ -1,0 +1,21 @@
+// Import des styles de layout
+@use "./Layout/header";
+@use "./Layout/footer";
+
+// Import des tyles du Main
+@use "./components/main/intro";
+@use "./components/main/bullesMedia";
+
+// Styles globaux
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle, #795548 20%, #5d4037 60%, #3e2723 100%);
+    color: black;
+
+  }

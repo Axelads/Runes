@@ -1,0 +1,35 @@
+.media {
+    list-style-type: none;
+    position: absolute;
+    top: 40%; // Centre verticalement
+    right: 2%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+  }
+  
+  .bulle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    position: relative;
+    cursor: pointer;
+  
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  
