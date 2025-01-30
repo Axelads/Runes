@@ -1,0 +1,32 @@
+.dernieres-actus {
+    padding: 10px 40px;
+    margin: 50px auto;
+    max-width: 1200px; // Ajuste selon la taille que tu veux
+    border: 2px solid white; // ✅ Trait blanc fin
+    border-radius: 10px; // ✅ Coins légèrement arrondis pour l'élégance
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.8); // ✅ Ombrage blanc subtil
+    text-align: center;
+  
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 30px;
+    }
+  
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 25px;
+    }
+    .en-attente {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+   
+}

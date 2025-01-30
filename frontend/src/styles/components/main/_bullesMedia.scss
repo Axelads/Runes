@@ -1,6 +1,6 @@
 .media {
     list-style-type: none;
-    position: absolute;
+    position: fixed;
     top: 40%; // Centre verticalement
     right: 2%;
     transform: translateY(-50%);
@@ -9,6 +9,7 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    z-index: 1000; // ✅ Assure qu'elles restent au-dessus du contenu
 
   }
   
@@ -22,14 +23,35 @@
     background: white;
     position: relative;
     cursor: pointer;
+    
   
     img {
       width: 40px;
       height: 40px;
     }
   
-    &:hover {
-      transform: scale(1.2);
-    }
   }
   
+  /* ✅ Media Query pour les écrans ≤ 562px */
+@media screen and (max-width: 562px) {
+
+  .media {
+    top: 50%;
+
+    .bulle {
+      width: 45px;
+      height: 45px;
+
+        img {
+          width: 30px;
+          height: 30px;
+  }
+}
+}
+}
+
+@media screen and (max-width: 375px) {
+  .media {
+    top: 60%
+  }
+}

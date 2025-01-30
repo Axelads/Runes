@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
+import backgroundMain from "../../assets/img_Design/Background_main.webp";
+import logoEcriture from "../../assets/logo_assoc/logo_juste_Rune.webp"; 
+
 
 const Intro = () => {
   useEffect(() => {
@@ -33,20 +36,23 @@ const Intro = () => {
   }, []); // Correction : Bonne fermeture du `useEffect`
 
   return (
-    <section className="intro" style={{ backgroundImage: `url(/assets/Background_main.webp)` }}>
+    <section className="intro" style={{ backgroundImage: `url(${backgroundMain})` }}>
       <div className="overlay">
         {/* Animation du texte */}
         <div className="animated-text">
           <h1>
-            <div><span>Runes,</span></div>
+            <div><span>RUNE,</span></div>
             <div>
-                <span>Rolistes</span> <span>Unis,</span> <span>sous</span> <span>un</span> <span>nouvel</span> <span>Emblème.</span>
+                <span>Rolistes</span> <span>Unis,</span>
+            </div>
+            <div>
+              <span>Sous</span> <span>un</span> <span>nouvel</span> <span>Emblème.</span>
             </div>
           </h1>
         </div>
 
         {/* Animation du logo */}
-        <img src="/assets/logo-ecriture.webp" alt="Logo Runes" className="logo-animation" />
+        <img src={logoEcriture} alt="Logo Runes" className="logo-animation" />
       </div>
     </section>
   );

@@ -8,13 +8,26 @@ import forumLogo from "../../assets/logoMedia/forum_logo.svg";
 
 const BullesMedia = () => {
   useEffect(() => {
+    // 🟢 Animation d'apparition des bulles (entrée en scène)
     gsap.from(".bulle", {
-      
-      scale: 2,
+      x:50, 
       opacity: 0,
       duration: 1.5,
       ease: "power2.out",
-      stagger: 1, // Décalage entre chaque mot
+      stagger: 1, // Décalage entre chaque bulle
+    });
+
+    // 🟢 Animation hover en GSAP
+    gsap.utils.toArray(".bulle").forEach((bulle) => {
+      gsap.set(bulle, { scale: 1 }); // Assure que la bulle reste stable après l'apparition
+
+      bulle.addEventListener("mouseenter", () => {
+        gsap.to(bulle, { scale: 1.2, duration: 0.3, ease: "power1.out" });
+      });
+
+      bulle.addEventListener("mouseleave", () => {
+        gsap.to(bulle, { scale: 1, duration: 0.3, ease: "power1.inOut" });
+      });
     });
   }, []);
 

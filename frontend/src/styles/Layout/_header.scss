@@ -67,4 +67,104 @@
       }
     }
   }
+
+  @media screen and (max-width: 1036px) {
+    .header {
+      .nav {
+      margin: 0 15px 0 15px;
+
+      ul{
+
+      li a {
+        font-size: 1rem;
+      }
+    }
+  }
+    }
+  }
+  
+  @media screen and (max-width: 922px) {
+    .header {
+      height: 70px;
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .ecriture-elfique {
+      flex: 1; // Garde la proportion mais permet la réduction
+      max-width: 200px; // ✅ Ajoute une limite à la réduction
+    }
+  
+    .ecriture-elfique img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+  
+    .nav {
+      flex: 2; // ✅ Donne plus d'espace à la navigation
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 !important;
+    }
+  
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap; // ✅ Permet l’adaptation si nécessaire
+      justify-content: center;
+      align-items: center;
+      gap: 0 !important; // Réduit l’espace entre les éléments
+      padding: 0 10px;
+    }
+  
+    .nav ul li a {
+      font-size: 1rem; // ✅ Réduit la taille du texte légèrement
+      padding: 4px 8px; // ✅ Ajuste les marges internes
+    }
+  }
+  }
+
+  @media screen and (max-width: 869px) {
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap; // ✅ Permet aux éléments de passer à la ligne si nécessaire
+      justify-content: center; // ✅ Centre les éléments horizontalement
+      align-items: center; // ✅ Centre verticalement
+      padding: 0;
+    }
+  
+    .nav ul li {
+      display: flex;
+      justify-content: center; // ✅ Centre chaque élément individuellement
+      align-items: center;
+      width: auto; // ✅ Permet aux éléments de s'ajuster à leur contenu
+      min-width: 80px; // ✅ Définit une largeur minimale pour éviter que tout se compacte trop
+    }
+  
+    .nav ul li a {
+      text-align: center; // ✅ Centre le texte à l'intérieur du lien
+      display: block; // ✅ Permet d’ajuster le lien sans casser la structure
+      padding: 8px 12px; // ✅ Ajuste les marges pour éviter que les liens ne soient trop serrés
+      white-space: nowrap; // ✅ Empêche le texte de se couper
+    }
+  }
+
+  @media screen and (max-width: 473px) {
+    .header .nav ul li a {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media screen and (max-width: 376px) {
+    .header .nav ul {
+      padding: 0;
+    }
+  }
+
+  
   

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .header {
   position: relative;
   width: 100%;
@@ -59,9 +60,91 @@
   color: #ff6060;
 }
 
+@media screen and (max-width: 1036px) {
+  .header .nav {
+    margin: 0 15px 0 15px;
+  }
+  .header .nav ul li a {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 922px) {
+  .header {
+    height: 70px;
+  }
+  .header .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .header .ecriture-elfique {
+    flex: 1;
+    max-width: 200px;
+  }
+  .header .ecriture-elfique img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+  }
+  .header .nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+  }
+  .header .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0 !important;
+    padding: 0 10px;
+  }
+  .header .nav ul li a {
+    font-size: 1rem;
+    padding: 4px 8px;
+  }
+}
+@media screen and (max-width: 869px) {
+  .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 80px;
+  }
+  .nav ul li a {
+    text-align: center;
+    display: block;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+}
+@media screen and (max-width: 473px) {
+  .header .nav ul li a {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 376px) {
+  .header .nav ul {
+    padding: 0;
+  }
+}
 .intro {
   width: 100%;
   height: 900px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,19 +181,79 @@
 }
 
 .animated-text h1 {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 50px;
+  font-family: "Abril Fatface", sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
 }
 
 .logo-animation {
   width: 350px;
   margin-top: 20px;
-  margin-left: 25%;
+  margin-left: 35%;
 }
 
+/* ✅ Media Query pour les écrans ≤ 1830px */
+@media screen and (max-width: 1830px) {
+  .overlay {
+    display: block;
+    text-align: left;
+  }
+  .animated-text {
+    text-align: left;
+    display: block;
+    margin-top: 170px;
+  }
+  .logo-animation {
+    margin: 60px auto 0;
+    display: block;
+  }
+}
+/* ✅ Media Query pour les écrans ≤ 1019px */
+@media screen and (max-width: 1019px) {
+  .animated-text {
+    text-align: center;
+    margin-top: 80px;
+  }
+  .animated-text div {
+    justify-content: center;
+    width: 100%;
+  }
+  .logo-animation {
+    margin: 160px auto 0;
+  }
+}
+/* ✅ Media Query pour les écrans ≤ 895px */
+@media screen and (max-width: 895px) {
+  .animated-text h1 {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .intro {
+    height: 800px;
+  }
+}
+/* ✅ Media Query pour les écrans ≤ 562px */
+@media screen and (max-width: 562px) {
+  .intro {
+    height: 750px;
+  }
+  .intro .animated-text h1 {
+    font-size: 25px;
+  }
+  .intro .logo-animation {
+    width: 290px;
+    margin: 120px auto 0;
+  }
+}
+@media screen and (max-width: 420px) {
+  .logo-animation {
+    width: 250px !important;
+  }
+}
 .media {
   list-style-type: none;
-  position: absolute;
+  position: fixed;
   top: 40%;
   right: 2%;
   transform: translateY(-50%);
@@ -119,6 +262,7 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  z-index: 1000;
 }
 
 .bulle {
@@ -136,8 +280,125 @@
   width: 40px;
   height: 40px;
 }
-.bulle:hover {
-  transform: scale(1.2);
+
+/* ✅ Media Query pour les écrans ≤ 562px */
+@media screen and (max-width: 562px) {
+  .media {
+    top: 50%;
+  }
+  .media .bulle {
+    width: 45px;
+    height: 45px;
+  }
+  .media .bulle img {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .media {
+    top: 60%;
+  }
+}
+.buttons-section {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: -2%;
+}
+.buttons-section .button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.buttons-section .piece-container {
+  perspective: 1000px;
+}
+.buttons-section .piece {
+  width: 220px;
+  height: 220px;
+  transition: transform 0.6s ease-in-out;
+}
+.buttons-section h2 {
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+  font-family: "IM Fell English", serif;
+}
+
+.dernieres-actus {
+  padding: 10px 40px;
+  margin: 50px auto;
+  max-width: 1200px;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.dernieres-actus h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px;
+}
+.dernieres-actus .cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px;
+}
+.dernieres-actus .en-attente {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  color: black;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.card {
+  width: 400px;
+  height: 300px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card .card-image-container {
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+.card .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card .empty-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, white, #d3d3d3);
+}
+.card .card-content {
+  padding: 15px;
+  text-align: center;
+}
+.card .card-content h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+.card .card-content p {
+  font-size: 1rem;
+  color: #666;
 }
 
 * {
@@ -150,6 +411,7 @@ body {
   font-family: "Montserrat", sans-serif;
   background: radial-gradient(circle, #795548 20%, #5d4037 60%, #3e2723 100%);
   color: black;
+  overflow-x: hidden;
 }
 
 /*# sourceMappingURL=styles.css.map */

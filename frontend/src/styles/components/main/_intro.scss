@@ -1,51 +1,128 @@
 .intro {
-    width: 100%;
-    height: 900px; // Pleine hauteur de l'écran
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+  width: 100%;
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.3); // Assure une bonne lisibilité
+  padding: 20px;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.animated-text {
+  text-align: center;
   
+  display: flex;
+  flex-direction: column; // Met chaque ligne sur une nouvelle ligne
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-text div {
+  display: flex;
+  gap: 10px;
+}
+
+.animated-text div:first-of-type {
+  align-self: flex-start; // Déplace "Runes," à gauche
+}
+
+.animated-text h1 {
+  font-size: 50px; // Augmente la taille du texte
+  font-family: "Abril Fatface", sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); // Ombre noire subtile
+}
+
+.logo-animation {
+  width: 350px;
+  margin-top: 20px;
+  margin-left: 35%;
+}
+
+
+/* ✅ Media Query pour les écrans ≤ 1830px */
+@media screen and (max-width: 1830px) {
   .overlay {
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.3); // Assure une bonne lisibilité
-    padding: 20px;
-    border-radius: 10px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    
+    display: block; // Suppression du display flex
+    text-align: left; // Suppression du text-align center
   }
-  
+
+  .animated-text {
+    text-align: left; // Supprime le centrage
+    display: block; // Supprime le flex pour pouvoir le positionner librement
+    margin-top: 170px; // Ajoute le margin-top demandé
+  }
+
+  .logo-animation {
+    margin: 60px auto 0; // Centre horizontalement et espace sous le texte
+    display: block; // Assure le centrage
+  }
+}
+
+/* ✅ Media Query pour les écrans ≤ 1019px */
+@media screen and (max-width: 1019px) {
   .animated-text {
     text-align: center;
-    display: flex;
-    flex-direction: column; // Met chaque ligne sur une nouvelle ligne
-    align-items: center;
-    justify-content: center;
+    margin-top: 80px; // Positionne `.animated-text` en haut
   }
-  
-  .animated-text div {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .animated-text div:first-of-type {
-    align-self: flex-start; // Déplace "Runes," à gauche
 
+  .animated-text div {
+    justify-content: center; // Centre bien chaque ligne horizontalement
+    width: 100%;
   }
+
+  .logo-animation {
+    margin: 160px auto 0; // Ajuste le centrage sous le texte
+  }
+}
+
+/* ✅ Media Query pour les écrans ≤ 895px */
+@media screen and (max-width: 895px) {
 
   .animated-text h1 {
-    font-size: 3rem; // Augmente la taille du texte
-    font-weight: bold;
+    font-size: 35px; // Augmente la taille du texte
   }
-  
+}
+
+@media screen and (max-width: 770px) {
+  .intro {
+    height: 800px;
+  }
+}
+
+/* ✅ Media Query pour les écrans ≤ 562px */
+@media screen and (max-width: 562px) {
+  .intro {
+    height: 750px;
+
+
+    .animated-text h1 {
+      font-size: 25px; // Augmente la taille du texte
+  }
+
+    .logo-animation {
+      width: 290px;
+      margin: 120px auto 0; // Ajuste le centrage sous le texte
+  }
+
+}
+}
+
+@media screen and (max-width: 420px) {
   .logo-animation {
-    width: 350px;
-    margin-top: 20px;
-    margin-left: 25%;
+    width: 250px !important;
   }
-  
+}
