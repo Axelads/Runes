@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import newsIcon from "../../../assets/image_piece/piece_violet.webp";
 import Card from "./Card";
 
 // Enregistre ScrollTrigger pour GSAP
@@ -21,7 +22,7 @@ const DernieresActus = ({ articles }) => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%", // Se déclenche lorsque 20% du composant est visible
+          start: "top 95%", // Se déclenche lorsque 20% du composant est visible
           toggleActions: "play none none none",
         },
       }
@@ -34,7 +35,7 @@ const DernieresActus = ({ articles }) => {
   return (
     <section className="dernieres-actus" ref={sectionRef}>
       <h2>Les dernières actualités de l'association</h2>
-
+      <img src={newsIcon} alt="Événements" className="piece" />
       {hasArticles ? (
         <div className="cards-container">
           {articles.slice(0, 3).map((article, index) => (

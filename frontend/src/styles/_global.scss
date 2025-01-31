@@ -1,6 +1,12 @@
+// Import styles PAGES
+@use "./pages/home";
+
 // Import des styles de layout
 @use "./Layout/header";
 @use "./Layout/footer";
+
+// Import styles modal
+@use "./components/modal/contactModal";
 
 // Import des tyles du Main
 @use "./components/main/intro";
@@ -11,6 +17,18 @@
 @use "./components/main/Actu/dernieresActus";
 @use "./components/main/Actu/card";
 
+// Import styles Button Jeux De Rune
+@use "./components/JeuxDeRune/buttonJDR";
+
+// Import position Agenda
+@use "./components/Agenda/agenda";
+
+// Import styles card Resume association
+@use "./components/ResumeAbout/resumeAbout";
+
+// Import style du trait de separation de mes composants
+@use "./components/Design/separator";
+
 // Styles globaux
 * {
     margin: 0;
@@ -20,8 +38,24 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle, #795548 20%, #5d4037 60%, #3e2723 100%);
+    background: linear-gradient(135deg, #795548, #5d4037, #3e2723);
+    background-size: 200% 200%; // ✅ Étend le dégradé pour un effet fluide
+    animation: waveDiagonal 10s infinite linear; // ✅ Animation fluide et continue
     color: black;
-    overflow-x: hidden; // Cache la barre de scroll horizontale
-
+    overflow-x: hidden; // ✅ Cache la barre de scroll horizontale
   }
+  
+  // ✅ Animation du background en diagonale
+  @keyframes waveDiagonal {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  

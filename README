@@ -1,0 +1,24 @@
+React et ReactDOM :
+npm install react react-dom
+
+React Router pour la navigation :
+npm install react-router-dom
+
+Sass pour le style :
+npm install sass
+
+Framer Motion pour les animations :
+npm install framer-motion
+( animation directement des composants ave props motion - Transition fluide entre les pages)
+
+GreenSock pour les animations logo :
+npm gsap
+( idéal pour animation en cascade - effets de morphing - scrollTrigger - SVG avance - Projets fluide MAIS attention doit etre utilisé avec useRef() manipulation du DOM)
+
+FullCalendar pour l'agenda :
+npm install @fullcalendar/react @fullcalendar/daygrid
+
+React Icons pour les icônes sociales :
+npm install react-icons
+
+ajout de emailjs pour la gestion du formulaire envoie de mail.

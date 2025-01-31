@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { gsap } from "gsap";
+import { gsap } from "gsap/dist/gsap";
 import backgroundMain from "../../assets/img_Design/Background_main.webp";
 import logoEcriture from "../../assets/logo_assoc/logo_juste_Rune.webp"; 
+import ButtonJDR from "../JeuxDeRune/ButtonJDR";
 
 
 const Intro = () => {
@@ -38,15 +39,19 @@ const Intro = () => {
   return (
     <section className="intro" style={{ backgroundImage: `url(${backgroundMain})` }}>
       <div className="overlay">
+        <ButtonJDR />
         {/* Animation du texte */}
         <div className="animated-text">
           <h1>
-            <div><span>RUNE,</span></div>
+            <div><span>R</span><span>.</span><span>U</span><span>.</span><span>N</span><span>.</span><span>E,</span></div>
             <div>
                 <span>Rolistes</span> <span>Unis,</span>
             </div>
             <div>
-              <span>Sous</span> <span>un</span> <span>nouvel</span> <span>Emblème.</span>
+              <span>Sous</span> <span>un</span> <span>nouvel</span> <span>Emblème, </span>
+            </div>
+            <div>
+            <span>Depuis </span><span>1998.</span>
             </div>
           </h1>
         </div>

@@ -1,0 +1,33 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // ✅ Centre tous les éléments horizontalement
+    width: 100%;
+
+    .separator {
+        margin-top: 120px;
+        margin-bottom: 120px;
+    }
+  
+    .resume-about {
+      align-self: start;
+      margin-left: 25px;
+      
+    }
+  
+    .dernieres-actus {
+      width: 80%; // ✅ S'adapte à l'écran sans être trop large
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .agenda-container {
+      width: 80%; // ✅ Adapte la largeur
+      max-width: 700px; // ✅ Évite qu'il soit trop large
+      display: flex;
+      flex-direction: column;
+      align-items: center; // ✅ Centre le calendrier
+      margin-bottom: 50px;
+    }
+  }

@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap/dist/gsap";;
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ContactModal from "../modal/ContactModal"; // ✅ Import de la modale
 
 // Importation des images des pièces
 import aboutIcon from "../../assets/image_piece/piece_bleu.webp";
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ButtonsSection = () => {
   const sectionRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ Gère l'affichage de la modale
 
   useEffect(() => {
     // ✅ Animation d'apparition progressive lors du scroll
@@ -55,32 +57,38 @@ const ButtonsSection = () => {
   }, []);
 
   return (
-    <section className="buttons-section" ref={sectionRef}>
-      <div className="button-container">
-        <div className="piece-container">
-          <img src={aboutIcon} alt="À propos" className="piece" />
+    <>
+      <section className="buttons-section" ref={sectionRef}>
+        <div className="button-container">
+          <div className="piece-container">
+            <img src={aboutIcon} alt="À propos" className="piece" />
+          </div>
+          <h2>À propos</h2>
         </div>
-        <h2>À propos</h2>
-      </div>
-      <div className="button-container">
-        <div className="piece-container">
-          <img src={eventsIcon} alt="Événements" className="piece" />
+        <div className="button-container">
+          <div className="piece-container">
+            <img src={eventsIcon} alt="Événements" className="piece" />
+          </div>
+          <h2>Événements</h2>
         </div>
-        <h2>Événements</h2>
-      </div>
-      <div className="button-container">
-        <div className="piece-container">
-          <img src={newsIcon} alt="Actualité" className="piece" />
+        <div className="button-container">
+          <div className="piece-container">
+            <img src={newsIcon} alt="Actualité" className="piece" />
+          </div>
+          <h2>Actualité</h2>
         </div>
-        <h2>Actualité</h2>
-      </div>
-      <div className="button-container">
-        <div className="piece-container">
-          <img src={contactIcon} alt="Nous contacter" className="piece" />
+        {/* ✅ Ajout du `onClick` sur la div contenant `contactIcon` */}
+        <div className="button-container" onClick={() => setIsModalOpen(true)} style={{ cursor: "pointer" }}>
+          <div className="piece-container">
+            <img src={contactIcon} alt="Nous contacter" className="piece" />
+          </div>
+          <h2>Nous contacter</h2>
         </div>
-        <h2>Nous contacter</h2>
-      </div>
-    </section>
+      </section>
+
+      {/* ✅ Affichage de la modale si `isModalOpen` est `true` */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 

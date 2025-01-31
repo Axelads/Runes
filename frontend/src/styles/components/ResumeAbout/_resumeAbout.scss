@@ -1,0 +1,70 @@
+.resume-about {
+    width: 75%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column; // ✅ Assure un affichage vertical global
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        font-family: "Playfair Display", serif;
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        align-self: flex-start; // ✅ Aligne le titre à gauche
+        margin-bottom: 25px;
+    }
+
+    .content-wrapper {
+        display: flex;
+        align-items: center; // ✅ Aligne le logo et le texte sur la même ligne
+        justify-content: center;
+        gap: 20px; // ✅ Espace entre le logo et le texte
+        text-align: left; // ✅ Corrige l'alignement du texte
+        width: 100%;
+    }
+
+    .logo-rune {
+        width: 620px;
+        height: auto;
+        flex-shrink: 0; // ✅ Empêche le logo de rétrécir
+    }
+
+    p {
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        flex: 1; // ✅ Prend tout l'espace restant
+        padding-right: 60px;
+        
+    }
+
+    .btn-about {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(45deg, #ff5733, #ff8d1a);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: transform 0.2s ease-in-out;
+        margin-top: 15px; // ✅ Espacement sous le texte
+
+        &:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ff8d1a, #ff5733);
+        }
+    }
+}
+
+/* ✅ Responsive */
+@media screen and (max-width: 768px) {
+    .resume-about .content-wrapper {
+        flex-direction: column; // ✅ Passe en colonne sur mobile
+        text-align: center;
+    }
+}

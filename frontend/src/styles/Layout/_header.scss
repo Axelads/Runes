@@ -53,12 +53,19 @@
         padding: 0;
         margin: 0;
   
-        li a {
-          text-decoration: none;
-          color: white;
-          font-weight: 600;
-          font-size: 1.2rem;
-          transition: color 0.3s ease-in-out;
+        li a,
+          .contact-btn {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+            background: none; // ✅ Supprime tout fond par défaut du bouton
+            border: none; // ✅ Supprime les bordures du bouton
+            cursor: pointer; // ✅ Indique que c'est cliquable
+            font-family: inherit; // ✅ Assure que la police est la même
+            padding: 0; // ✅ Évite toute marge interne du bouton
+            display: inline-block; // ✅ Assure un comportement similaire au <a>
   
           &:hover {
             color: #ff6060;

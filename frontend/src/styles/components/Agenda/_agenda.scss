@@ -1,0 +1,32 @@
+.agenda-container {
+    max-width: 700px; /* Ajuste la largeur */
+    overflow: hidden; /* Empêche les débordements */
+    border-radius: 8px;
+    
+    .Titre-agenda {
+        display: flex; /* Active le flexbox */
+        flex-direction: column; /* Met les éléments en colonne */
+        align-items: center; /* Centre horizontalement */
+        justify-content: center; /* Centre verticalement */
+        text-align: center; /* Centre le texte */
+
+    h2 {
+        font-family: "Playfair Display", serif;
+        color: white;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}
+  
+  .agenda-container iframe {
+    width: 100%; /* Ajuste la largeur au conteneur */
+    height: 500px; /* Ajuste la hauteur */
+    border-radius: 10px; /* Arrondit les bords */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); /* Ajoute un ombrage */
+  }
+
+}
+  

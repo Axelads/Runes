@@ -1,0 +1,57 @@
+.jeux-de-rune {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    width: 400px; // ✅ Largeur fixe
+    height: 170px; // ✅ Hauteur fixe pour éviter les changements de taille
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ✅ Fixe la largeur du bouton même lorsqu'il pulse */
+  .btn-jdr {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff5733, #ff8d1a);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 260px; // ✅ Largeur fixe
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  /* ✅ Empêche la pulsation d'impacter la largeur */
+  .btn-jdr:hover {
+    transform: scale(1.1);
+  }
+  
+  .countdown {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  /* ✅ Fixe la taille des chiffres du décompte */
+  .countdown span {
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    min-width: 45px; // ✅ Largeur fixe pour éviter que le texte ne bouge
+    text-align: center;
+  }
+  

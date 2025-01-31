@@ -1,0 +1,113 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    opacity: 0;
+    transform: scale(0.8);
+
+    h2 {
+        margin-bottom: 25px;
+        color: black
+    }
+
+    p {
+        margin-bottom: 15px;
+        color: black;
+    }
+
+    .social-links {
+        list-style: none; // ✅ Supprime les puces des listes
+        padding: 0;
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      
+        li {
+          display: flex;
+          align-items: center;
+      
+          a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+      
+            &:hover {
+              color: #ff5733;
+            }
+      
+            svg {
+              font-size: 1.5rem; // ✅ Taille des icônes
+            }
+          }
+        }
+      }
+      
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+        height: 200px;
+    }
+  
+    button {
+      padding: 10px;
+      background: #ff5733;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+  
+      &:hover {
+        background: #ff8d1a;
+      }
+    }
+  }
+
+  
