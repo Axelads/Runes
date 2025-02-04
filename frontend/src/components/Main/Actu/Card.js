@@ -1,18 +1,34 @@
-import React from "react";
+// src/components/Card.js
+import React, { useEffect } from "react";
 
 const Card = ({ image, title, excerpt, isEmpty }) => {
+  useEffect(() => {
+    console.log("Card - image data:", image);
+  }, [image]);
+
   return (
     <div className={`card ${isEmpty ? "empty" : ""}`}>
-      <div className="card-image-container">
+      <div
+        className="card-image-container"
+        style={{ width: "100%", height: "200px", overflow: "hidden" }}
+      >
         {image ? (
-          <img src={image} alt={title} className="card-image" />
+          <img
+            src={image}
+            alt={title}
+            className="card-image"
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
         ) : (
-          <div className="empty-overlay"></div> // ✅ Fond blanc avec overlay gris
+          <div
+            className="empty-overlay"
+            style={{ width: "100%", height: "100%", backgroundColor: "#f0f0f0" }}
+          ></div>
         )}
       </div>
       <div className="card-content">
         <h3>{title}</h3>
-        <p>{excerpt}</p>
+        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
       </div>
     </div>
   );
