@@ -17,8 +17,9 @@
 @use "./components/main/Actu/dernieresActus";
 @use "./components/main/Actu/card";
 
-// Import styles Button Jeux De Rune
+// Import styles Button 
 @use "./components/JeuxDeRune/buttonJDR";
+@use "./components/button/backToTop";
 
 // Import position Agenda
 @use "./components/Agenda/agenda";
@@ -28,6 +29,8 @@
 
 // Import style du trait de separation de mes composants
 @use "./components/Design/separator";
+
+// Import style button
 
 // Styles globaux
 * {

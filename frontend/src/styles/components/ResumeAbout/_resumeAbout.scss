@@ -62,9 +62,51 @@
 }
 
 /* ✅ Responsive */
+
+@media screen and (max-width: 1440px) {
+    .resume-about {
+        width: 85%;
+    
+    .logo-rune {
+        width: 520px;
+    }
+}
+}
+
+@media screen and (max-width: 1200px) {
+    .resume-about {
+        width: 95%;
+
+        .logo-rune {
+            width: 400px;
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .resume-about {
+        .logo-rune {
+            width: 300px;
+        }
+    }
+}
+
 @media screen and (max-width: 768px) {
-    .resume-about .content-wrapper {
+    .resume-about {
+        width: 85%;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .content-wrapper {
         flex-direction: column; // ✅ Passe en colonne sur mobile
         text-align: center;
+
+        .logo-rune {
+            width: 200px;
+        }
     }
+    p {
+        padding-right: 0;
+    }
+}
 }

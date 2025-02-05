@@ -13,19 +13,20 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* 🟢 Section À propos */}
-      <div className="footer-section about">
-        <img src={logoRune} alt="Logo de l'association RUNE" className="footer-logo" />
-        <p>
-          <strong>RUNE</strong>, une association loi 1901 dédiée au jeu de rôle depuis 1998 à Toulon et sa région.
-          Retrouvez-nous pour des parties passionnantes et notre événement annuel{" "}
-          <a href="https://jeuxderune.com/" target="_blank" rel="noopener noreferrer">
-            Jeux de Rune
-          </a>{" "}
-          !
-        </p>
+      <section className="contain-infos">
+      
+        <div className="footer-section about">
+          <img src={logoRune} alt="Logo de l'association RUNE" className="footer-logo" />
+          <p>
+            <strong>RUNE</strong>, une association loi 1901 dédiée au jeu de rôle depuis 1998 à Toulon et sa région.
+            Retrouvez-nous pour des parties passionnantes et notre événement annuel{" "}
+            <a href="https://jeuxderune.com/" target="_blank" rel="noopener noreferrer">
+              Jeux de Rune
+            </a>{" "}
+            !
+          </p>
       </div>
-
+      <div className="footer-bottom">
       {/* 🟢 Section Navigation rapide */}
       <div className="footer-section navigation">
         <h3>Navigation</h3>
@@ -69,11 +70,13 @@ const Footer = () => {
           </a>
         </div>
       </div>
+      </div>
 
       {/* ✅ Ajout du slogan */}
       <div className="slogan-container">
         <img src={sloganRune} alt="Slogan de l'association RUNE" />
       </div>
+      </section>
 
       {/* 🟢 Section Copyright */}
       <div className="footer-copyright">

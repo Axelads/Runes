@@ -83,6 +83,33 @@
   }
 }
 
+@media screen and (max-width: 1586px) {
+  .intro {
+    .overlay {
+      .logo-animation {
+        margin-left: 15%;
+        margin-top: 17%;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 1286px) {
+  .intro {
+    .overlay {
+      .animated-text h1 {
+        font-size: 35px; // Augmente la taille du texte
+        
+        
+      }
+      .logo-animation {
+        width: 250px;
+      }
+    }
+  }
+}
+
 /* ✅ Media Query pour les écrans ≤ 1019px */
 @media screen and (max-width: 1019px) {
   .animated-text {
@@ -102,9 +129,17 @@
 
 /* ✅ Media Query pour les écrans ≤ 895px */
 @media screen and (max-width: 895px) {
-
-  .animated-text h1 {
-    font-size: 35px; // Augmente la taille du texte
+  .intro {
+    .overlay {
+      .animated-text h1 {
+        font-size: 33px; // Augmente la taille du texte
+        
+        
+      }
+      .logo-animation {
+        width: 200px;
+      }
+    }
   }
 }
 
@@ -114,28 +149,68 @@
   }
 }
 
+@media screen and (max-width: 729px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .overlay {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    
+
+    .animated-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 150px;
+    }
+
+    .logo-animation {
+      width: 280px;
+      margin: 15% 0 0 0;
+    }
+  }
+}
+}
+
+
 /* ✅ Media Query pour les écrans ≤ 562px */
 @media screen and (max-width: 562px) {
   .intro {
     height: 750px;
-
+    .overlay {
 
     .animated-text h1 {
       font-size: 25px; // Augmente la taille du texte
+      margin-top: 50px;
   }
 
     .logo-animation {
       width: 290px;
-      margin: 120px auto 0; // Ajuste le centrage sous le texte
+      margin: auto; // Ajuste le centrage sous le texte
   }
 
+}
 }
 }
 
 @media screen and (max-width: 420px) {
+  .intro {
+    .overlay{
+  
   .logo-animation {
     width: 250px !important;
   }
+}
+}
 }
 
 

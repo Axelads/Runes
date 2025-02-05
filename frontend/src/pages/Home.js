@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Layout/Header";
 import Intro from "../components/Main/Intro";
 import BullesMedia from "../components/Main/BullesMedia";
@@ -8,12 +8,11 @@ import DernieresActus from "../components/Main/Actu/DernieresActus";
 import Agenda from "../components/Agenda/Agenda";
 import Separator from "../components/Design/Separator";
 import Footer from "../components/Layout/Footer";
-
+import BackToTop from "../components/Button/BackToTop"; // ✅ Import du bouton de retour en haut
 
 const Home = () => {
-  // ✅ Force le scroll en haut après un court délai pour contrer la restauration automatique du navigateur
   useEffect(() => {
-    window.history.scrollRestoration = "manual"; // Désactive la restauration automatique
+    window.history.scrollRestoration = "manual";
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);
@@ -33,9 +32,11 @@ const Home = () => {
         <Separator />
         <Agenda />
       </main>
-      <Footer />
 
-      
+      {/* ✅ Ajout du composant BackToTop */}
+      <BackToTop />
+
+      <Footer />
     </>
   );
 };

@@ -14,8 +14,8 @@ const Intro = () => {
       y: -50,
       opacity: 0,
       ease: "power2.out", 
-      duration: 0.9,
-      stagger: 0.4, // Décalage entre chaque mot
+      duration: 0.4,
+      stagger: 0.3, // Décalage entre chaque mot
     });
 
     // Animation du logo : apparaît après le texte, commence petit et grandit une seule fois

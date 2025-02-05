@@ -3,52 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- 🌍 META GÉNÉRALES -->
+
+    <!-- 🌍 META GÉNÉRALES -->
     <meta name="description" content="Découvrez l'association Runes - Rolistes Unis : événements, partage et passion du JDR. Rejoignez-nous !">
-    <meta name="keywords" content="association, jeux de rôle, JDR, événements, communauté">
+    <meta name="keywords" content="RUNE, association jeux de rôle, JDR, jeux de rôles, Rôlistes Unis, jeux de société, événements, communauté rôlistes, convention jeux, club jeux Toulon">
     <meta name="author" content="Runes - Rolistes Unis">
 
-<!-- 🚀 OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp, Discord...) -->
+    <!-- 🚀 OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp, Discord...) -->
     <meta property="og:title" content="Runes, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
     <meta property="og:description" content="Découvrez nos événements, nos valeurs et notre passion du jeu de rôle. Rejoignez l'aventure !">
-    <meta property="og:image" content="https://rolistesunis.fr/assets/Logo_Runes_Reseaux.webp">
+    <meta property="og:image" content="https://rolistesunis.fr/Logo_Runes_Reseaux.webp">
     <meta property="og:image:alt" content="Logo de l'association Runes - Rolistes Unis">
     <meta property="og:url" content="https://rolistesunis.fr">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Runes - Rolistes Unis">
 
-<!-- 🐦 TWITTER (X) META TAGS -->
+    <!-- 🐦 TWITTER (X) META TAGS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Runes, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
     <meta name="twitter:description" content="Rejoignez notre communauté et découvrez nos événements JDR !">
-    <meta name="twitter:image" content="https://rolistesunis.fr/assets/Logo_Runes_Reseaux.webp">
+    <meta name="twitter:image" content="https://rolistesunis.fr/Logo_Runes_Reseaux.webp">
     <meta name="twitter:image:alt" content="Logo de l'association Runes">
     <meta name="twitter:site" content="@NomDeTonCompteX">
 
-<!-- 🔎 META POUR LE SEO GOOGLE -->
+    <!-- 🔎 META POUR LE SEO GOOGLE -->
     <meta itemprop="name" content="Runes - Rolistes Unis">
     <meta itemprop="description" content="Rejoignez notre association dédiée au jeu de rôle et à la convivialité ! Runes - Rolistes Unis Sous un Nouvel Emblème.">
-    <meta itemprop="image" content="https://rolistesunis.fr/assets/Logo_Runes_Reseaux.webp">
+    <meta itemprop="image" content="https://rolistesunis.fr/Logo_Runes_Reseaux.webp">
 
-    <title>Runes - Rolistes Unis </title>
+    <title>Runes - Rolistes Unis</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="/src/assets/logo-sans-ecriture.webp">
-
+    <link rel="icon" type="image/webp" href="%PUBLIC_URL%/logo-sans-ecriture.webp>
 
     <!-- Google Fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-</noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
 
+    <!-- ✅ SCHEMA ORG (Données structurées pour SEO Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "RUNE",
+      "image": "https://jeuxderune.com/assets/images/logo.png", 
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1970 Rte de Tourris",
+        "addressLocality": "La Valette-du-Var",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "postalCode": "83160",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.160693809385755,
+        "longitude": 5.970709892155507
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "22:00"
+      },
+      "sameAs": [
+        "https://jeuxderune.com",
+        "https://www.instagram.com/jeux_de_rune/",
+        "https://www.facebook.com/profile.php?id=61564211517638"
+      ],
+      "priceRange": "Gratuit"
+    }
+    </script>
 
     <!-- Styles de base -->
     <link rel="stylesheet" href="styles/global.css">

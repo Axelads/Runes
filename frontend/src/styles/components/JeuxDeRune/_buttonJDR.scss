@@ -55,3 +55,27 @@
     text-align: center;
   }
   
+  @media screen and (max-width: 419px) {
+    .jeux-de-rune {
+      width: 90%; // ✅ Adapte la largeur au contenu tout en gardant de l'espace
+      height: 150px; // ✅ Réduction de la hauteur pour éviter qu'elle prenne trop de place
+      padding: 8px; // ✅ Un padding un peu plus léger pour optimiser l'espace
+    }
+  
+    .btn-jdr {
+      width: 200px; // ✅ Réduction de la largeur du bouton pour ne pas être trop imposant
+      font-size: 1rem; // ✅ Réduction de la taille du texte
+      padding: 10px 20px; // ✅ Ajuste l'espace pour rester harmonieux
+    }
+  
+    .countdown {
+      font-size: 1.2rem; // ✅ Réduction légère de la taille du texte du décompte
+      gap: 3px; // ✅ Réduction de l'écart entre les éléments
+    }
+  
+    .countdown span {
+      min-width: 40px; // ✅ Réduit la largeur des chiffres du décompte
+      padding: 4px 8px; // ✅ Ajuste pour éviter que les blocs soient trop gros
+    }
+  }
+  

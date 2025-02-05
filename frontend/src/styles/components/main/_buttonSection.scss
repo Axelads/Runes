@@ -28,4 +28,47 @@
     font-family: 'IM Fell English', serif;
   }
 }
+
+@media screen and (max-width: 1042px) {
+  .buttons-section {
+    flex-wrap: wrap; // Permet aux boutons de passer sur plusieurs lignes si besoin
+    gap: 30px; // Réduit l'espacement entre les boutons
+    margin-top: -35px; // Ajuste le positionnement global
+    
+    .button-container {
+      width: 45%; // Fait en sorte que 2 boutons s'affichent par ligne
+    }
+
+    .piece {
+      width: 180px;
+      height: 180px; // Réduction pour s'adapter à la largeur
+    }
+
+    h2 {
+      font-size: 1.1rem; // Réduction du texte pour rester harmonieux
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .buttons-section {
+    flex-direction: column; // Passe en colonne
+    align-items: center; // Centre les boutons
+
+    .button-container {
+      width: 100%; // Largeur complète pour centrer chaque bouton
+    }
+
+    .piece {
+      width: 160px;
+      height: 160px; // Encore un peu plus petit pour éviter qu'ils prennent trop de place
+    }
+
+    h2 {
+      font-size: 1rem; // Encore une petite réduction du texte
+    }
+  }
+}
+
+
   

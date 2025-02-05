@@ -8,9 +8,24 @@
     padding: 30px 50px;
     text-align: left;
 
+    .contain-infos {
+        display: flex;
+        justify-content: space-between; // ✅ Espacement équilibré entre les sections
+        align-items: flex-start; // ✅ Alignement en haut des éléments
+        width: 100%;
+        gap: 40px; // ✅ Ajuste l’espace entre les sections
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between; // ✅ Assure l'alignement côte à côte
+        align-items: flex-start;
+        width: 40%;
+        gap: 40px; // ✅ Espacement entre les éléments
+    }
+
     .footer-section {
         flex: 1;
-        min-width: 250px;
         margin-bottom: 20px;
 
         h3 {
@@ -27,15 +42,12 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s ease-in-out;
+            margin-bottom: 4px;
         }
 
         a:hover {
             color: #ff5733;
         }
-    }
-
-    .footer-section.about {
-        margin-right: 80px; // ✅ Augmente l'espacement avec le reste
     }
 
     .footer-logo {
@@ -48,7 +60,6 @@
         padding: 0;
 
         li, .contact-btn {
-            
             font-weight: bold;
             font-size: 1rem;
             text-decoration: none;
@@ -61,40 +72,8 @@
             text-align: left;
             padding-bottom: 3px;
             width: 100%;
-        
             &:hover {
                 color: #ff5733;
-            }
-        }
-    }
-
-    .footer-section.contact {
-        p{
-            margin-bottom: 4px;
-        }
-    }
-
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 10px;
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            text-decoration: none;
-            padding: 12px 20px; // ✅ Augmente la zone de clic
-            border-radius: 8px;
-
-            &:hover {
-                background: rgba(255, 255, 255, 0.2);
-            }
-
-            svg {
-                font-size: 1.5rem;
             }
         }
     }
@@ -108,7 +87,6 @@
             font-size: 1.8rem;
             color: white;
             transition: transform 0.3s ease-in-out;
-
             &:hover {
                 transform: scale(1.2);
                 color: #ff5733;
@@ -146,7 +124,6 @@
                 color: white;
                 font-weight: bold;
                 transition: color 0.3s ease-in-out;
-
                 &:hover {
                     color: #ff5733;
                 }
@@ -159,31 +136,29 @@
     }
 }
 
-/* ✅ Responsive pour petits écrans */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 898px) {
     .footer {
         flex-direction: column;
-        text-align: center;
         align-items: center;
-    }
-
-    .footer-section {
         text-align: center;
-    }
 
-    .footer-links {
-        align-items: center;
-    }
+        .contain-infos, .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-    .social-links {
-        justify-content: center;
-    }
+        .footer-section {
+            width: 100%;
+            text-align: center;
+        }
 
-    .slogan-container {
-        justify-content: center;
-    }
+        .social-links {
+            justify-content: center;
+        }
 
-    .footer-copyright {
-        margin-top: 10px;
+        .slogan-container {
+            justify-content: center;
+        }
     }
 }
