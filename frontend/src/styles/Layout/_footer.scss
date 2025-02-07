@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 30px 50px;
+    padding: 30px 20px;
     text-align: left;
 
     .contain-infos {
@@ -135,6 +135,26 @@
         }
     }
 }
+@media screen and (max-width: 1173px) {
+    .footer {
+        .footer-bottom {
+            gap: 0;
+        }
+        .slogan-container {
+            width: 320px;
+        }
+    }
+}
+@media screen and (max-width: 1013px) {
+    .footer {
+        .contain-infos {
+            gap: 20px
+        }
+        .slogan-container {
+            width: 250px;
+        }
+    }
+}
 
 @media screen and (max-width: 898px) {
     .footer {
@@ -161,4 +181,14 @@
             justify-content: center;
         }
     }
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        .footer-bottom {
+            width: 60%;
+        }
+
+
+}
 }

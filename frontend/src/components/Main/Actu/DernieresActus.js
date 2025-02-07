@@ -1,14 +1,13 @@
-// src/components/DernieresActus.js
 import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useArticles } from "../../hooks/useArticles";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import newsIcon from "../../../assets/image_piece/piece_violet.webp";
-import Card from "./Card";
+import Card from "../../Cards/CardActu";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Fonction utilitaire pour extraire l'URL d'une image depuis le HTML
 const extractImageFromContent = (htmlContent) => {
   const imgRegex = /<img[^>]+src="([^">]+)"/i;
   const match = imgRegex.exec(htmlContent);
@@ -18,6 +17,7 @@ const extractImageFromContent = (htmlContent) => {
 const DernieresActus = () => {
   const sectionRef = useRef(null);
   const { articles, loading, error } = useArticles();
+  const navigate = useNavigate();
 
   useEffect(() => {
     gsap.fromTo(
@@ -37,15 +37,13 @@ const DernieresActus = () => {
     );
   }, []);
 
-  // Vérification de la présence d'articles
-  const hasArticles = articles && articles.length > 0;
-  // Tri par ID décroissant (le plus grand = le plus récent)
-  const sortedArticles = hasArticles ? [...articles].sort((a, b) => b.id - a.id) : [];
-  // Sélection des 3 premiers articles
-  const topThree = sortedArticles.slice(0, 3);
+  const handleCardClick = (articleId) => {
+    navigate(`/news#article-${articleId}`);
+  };
 
-  // Log pour déboguer les données des articles
-  console.log("DernieresActus - topThree articles:", topThree);
+  const hasArticles = articles && articles.length > 0;
+  const sortedArticles = hasArticles ? [...articles].sort((a, b) => b.id - a.id) : [];
+  const topThree = sortedArticles.slice(0, 3);
 
   return (
     <section className="dernieres-actus" ref={sectionRef}>
@@ -55,22 +53,11 @@ const DernieresActus = () => {
       {error && <p style={{ color: "red" }}>{error}</p>}
       {hasArticles ? (
         <div className="cards-container">
-          {topThree.map((article, index) => {
-            // Tenter de récupérer l'image mise en avant depuis _embedded
-            let image =
-              article._embedded &&
-              article._embedded["wp:featuredmedia"] &&
-              article._embedded["wp:featuredmedia"][0]
-                ? article._embedded["wp:featuredmedia"][0].source_url
-                : null;
-
-            // Si l'image n'est pas présente dans _embedded, l'extraire depuis content.rendered
-            if (!image && article.content && article.content.rendered) {
+          {topThree.map((article) => {
+            let image = article._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+            if (!image && article.content?.rendered) {
               image = extractImageFromContent(article.content.rendered);
             }
-
-            // Pour déboguer, on affiche dans la console l'URL trouvée
-            console.log(`Article ID ${article.id} - image:`, image);
 
             const title = article.title.rendered;
             const excerpt = article.excerpt.rendered
@@ -78,14 +65,9 @@ const DernieresActus = () => {
               : article.content.rendered.replace(/<[^>]+>/g, "").substring(0, 100) + "...";
 
             return (
-              <a key={article.id} href={`/news#article-${index + 1}`}>
-                <Card
-                  image={image}
-                  title={title}
-                  excerpt={excerpt}
-                  isEmpty={!image}
-                />
-              </a>
+              <div key={article.id} onClick={() => handleCardClick(article.id)} style={{ cursor: "pointer" }}>
+                <Card image={image} title={title} excerpt={excerpt} isEmpty={!image} />
+              </div>
             );
           })}
         </div>

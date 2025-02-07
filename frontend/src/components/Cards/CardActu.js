@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 const Card = ({ image, title, excerpt, isEmpty }) => {
   useEffect(() => {
-    console.log("Card - image data:", image);
+    
   }, [image]);
 
   return (

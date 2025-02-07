@@ -1,4 +1,68 @@
 @charset "UTF-8";
+/* 🎯 RESET CSS - Supprime les styles par défaut des navigateurs */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.search-container .search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #d4a373;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+.search-container .search-input:focus {
+  outline: none;
+  border-color: #ffdd93;
+  box-shadow: 0 0 10px rgba(255, 221, 147, 0.6);
+}
+
+@media (max-width: 863px) {
+  .search-container {
+    height: 30px;
+  }
+  .search-bar-fixed {
+    width: 40% !important;
+  }
+}
 main {
   display: flex;
   flex-direction: column;
@@ -28,6 +92,337 @@ main .agenda-container {
   margin-bottom: 50px;
 }
 
+.container-article {
+  margin: 0;
+  padding: 20px 0 0 0;
+  font-family: "Montserrat", sans-serif;
+}
+.container-article .event-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.container-article .event-title h1 {
+  font-family: "Uncial Antiqua", serif;
+  font-size: 4rem;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to right, #ffdd93, #d4a373);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.container-article .event-title .title-icon {
+  width: 100px;
+  height: auto;
+}
+.container-article .event-title .title-icon.left {
+  transform: rotate(-10deg);
+}
+.container-article .event-title .title-icon.right {
+  transform: rotate(10deg);
+}
+.container-article .loading,
+.container-article .error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: red;
+}
+.container-article article {
+  max-width: 90%;
+  height: auto;
+  background: rgba(248, 243, 243, 0.377);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 40px auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.container-article article:hover {
+  transform: translateY(-5px);
+}
+.container-article article p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+.container-article article h2 {
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  color: #222;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.container-article article .article-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* ✅ Image forcée à l’extrême gauche */
+  /* ✅ Texte bien collé à droite */
+}
+.container-article article .article-wrapper .wp-block-group.is-content-justification-right {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 0 300px 0 0;
+}
+.container-article article .article-wrapper .wp-block-group.is-content-justification-right p {
+  font-size: 1rem;
+  text-align: start;
+}
+.container-article article .article-wrapper .wp-block-group.is-nowrap p {
+  font-size: 1rem;
+}
+.container-article article .article-wrapper .wp-block-image {
+  flex: 0 0 200px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-start;
+}
+.container-article article .article-wrapper .wp-block-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.container-article article .article-wrapper h3 {
+  font-family: IM Fell English, serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.container-article article .article-wrapper h3 :hover {
+  color: rgba(196, 66, 37, 0.8);
+  cursor: default;
+}
+.container-article article .article-wrapper .container-paragraphe {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  color: #222;
+}
+.container-article article .article-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.container-article article .article-wrapper li {
+  font-size: 0.8rem;
+  padding: 5px 0;
+  text-align: left;
+}
+.container-article article .article-wrapper li :hover {
+  color: blue;
+}
+.container-article article .date-article {
+  text-align: end;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ✅ Responsive - Sur mobile l’image passe au-dessus */
+@media (max-width: 1024px) {
+  .container-article article {
+    flex-direction: column;
+    text-align: center;
+  }
+  .container-article article p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .container-article article .article-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .container-article article .article-wrapper .wp-block-group.is-content-justification-right {
+    margin: 0 15px 0 0;
+  }
+  .container-article article .article-wrapper .wp-block-group.is-content-justification-right p {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 694px) {
+  .container-article article .article-wrapper .wp-block-image {
+    flex: 0 0 250px;
+    height: 250px;
+    width: 250px;
+  }
+}
+@media (max-width: 536px) {
+  .container-article article h2 {
+    font-size: 2rem;
+  }
+  .container-article article p {
+    font-size: 1rem;
+  }
+  .container-article article .date-article {
+    font-size: 0.7rem;
+  }
+  .container-article article .article-wrapper h3 {
+    font-size: 1.6rem;
+  }
+  .container-article article .article-wrapper li {
+    font-size: 0.8rem;
+  }
+  .container-article article .article-wrapper .wp-block-group {
+    flex-direction: column;
+  }
+  .container-article article .article-wrapper .wp-block-group p {
+    font-size: 1rem;
+  }
+}
+.not-found {
+  text-align: center;
+  padding: 50px;
+}
+.not-found h1 {
+  font-size: 100px;
+  color: #ff4444;
+  margin-bottom: 10px;
+}
+.not-found p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.not-found .home-link {
+  text-decoration: none;
+  color: white;
+  background: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.not-found .home-link:hover {
+  background: #0056b3;
+}
+
+.search-bar-fixed {
+  position: fixed;
+  width: 20%;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.event-wrapper {
+  scroll-margin-top: 120px;
+}
+
+.events-container {
+  max-width: 1990px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  /* ✅ TITRE PRINCIPAL */
+  /* ✅ LISTE DES ÉVÉNEMENTS */
+  /* ✅ ALTERNANCE GAUCHE/DROITE DES CARTES */
+  /* ✅ SEPARATEUR CENTRÉ */
+}
+.events-container .event-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-top: 15px;
+}
+.events-container .event-title h1 {
+  font-family: "Uncial Antiqua", serif;
+  font-size: 4rem;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to right, #ffdd93, #d4a373);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.events-container .event-title .title-icon {
+  width: 100px;
+  height: auto;
+}
+.events-container .event-title .title-icon.left {
+  transform: rotate(-10deg);
+}
+.events-container .event-title .title-icon.right {
+  transform: rotate(10deg);
+}
+.events-container .events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+.events-container .event-wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  scroll-margin-top: 120px;
+}
+.events-container .event-wrapper.right {
+  justify-content: flex-end;
+}
+.events-container .separator-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .event-wrapper {
+    width: 80%;
+  }
+}
+@media (max-width: 900px) {
+  .events-container .event-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 633px) {
+  .events-container .event-title h1 {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 563px) {
+  .events-container .event-title h1 {
+    font-size: 2rem;
+  }
+  .events-container .event-title .title-icon.left {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  .events-container .event-title {
+    flex-direction: column;
+    gap: 0;
+    margin-left: 25px;
+  }
+}
 .header {
   position: relative;
   width: 100%;
@@ -183,7 +578,7 @@ main .agenda-container {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 30px 50px;
+  padding: 30px 20px;
   text-align: left;
 }
 .footer .contain-infos {
@@ -297,6 +692,22 @@ main .agenda-container {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 1173px) {
+  .footer .footer-bottom {
+    gap: 0;
+  }
+  .footer .slogan-container {
+    width: 320px;
+  }
+}
+@media screen and (max-width: 1013px) {
+  .footer .contain-infos {
+    gap: 20px;
+  }
+  .footer .slogan-container {
+    width: 250px;
+  }
+}
 @media screen and (max-width: 898px) {
   .footer {
     flex-direction: column;
@@ -317,6 +728,11 @@ main .agenda-container {
   }
   .footer .slogan-container {
     justify-content: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer .footer-bottom {
+    width: 60%;
   }
 }
 .modal-overlay {
@@ -420,15 +836,13 @@ form button:hover {
 }
 
 .intro {
+  position: relative;
+  height: 700px;
   width: 100%;
-  height: 900px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  overflow: hidden;
 }
 .intro .overlay {
   text-align: center;
@@ -440,6 +854,18 @@ form button:hover {
   width: 100%;
   display: flex;
   align-items: center;
+}
+.intro .overlay .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.intro .overlay .background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .intro .overlay .jeux-de-rune {
   position: absolute;
@@ -799,13 +1225,18 @@ form button:hover {
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 10px rgba(94, 92, 92, 0.5);
   width: 400px;
   height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.jeux-de-rune p {
+  color: black;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 /* ✅ Fixe la largeur du bouton même lorsqu'il pulse */
@@ -824,6 +1255,7 @@ form button:hover {
   width: 260px;
   text-align: center;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 /* ✅ Empêche la pulsation d'impacter la largeur */
@@ -834,7 +1266,7 @@ form button:hover {
 .countdown {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: black;
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -858,7 +1290,7 @@ form button:hover {
     padding: 8px;
   }
   .btn-jdr {
-    width: 200px;
+    width: 250px;
     font-size: 1rem;
     padding: 10px 20px;
   }
@@ -895,6 +1327,33 @@ form button:hover {
   transition: transform 0.3s ease-in-out;
 }
 .back-to-top:hover svg {
+  transform: scale(1.3);
+}
+
+.back-to-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 87, 51, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  z-index: 1000;
+}
+.back-to-home:hover {
+  background: black;
+}
+.back-to-home svg {
+  transition: transform 0.3s ease-in-out;
+}
+.back-to-home:hover svg {
   transform: scale(1.3);
 }
 
@@ -1028,6 +1487,109 @@ form button:hover {
   border-radius: 10px;
 }
 
+.card-event {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  max-width: 900px;
+  overflow: hidden;
+}
+.card-event:nth-child(even) {
+  align-self: flex-end;
+}
+.card-event:nth-child(odd) {
+  align-self: flex-start;
+}
+.card-event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.card-event .event-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.card-event .event-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+.card-event .event-details {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+.card-event .event-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.card-event .event-list .event-item {
+  background: rgba(240, 240, 240, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.card-event .event-list .event-item:hover {
+  transform: scale(1.02);
+}
+.card-event .event-list .event-item .event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-family: IM Fell English, serif;
+}
+.card-event .event-list .event-item .event-description {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #444;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+.card-event .event-button {
+  background: linear-gradient(45deg, #ff5733, #ff8d1a);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  margin-top: 10px;
+}
+.card-event .event-button:hover {
+  background: linear-gradient(45deg, #ff8d1a, #ff5733);
+  transform: scale(1.05);
+}
+
+/* ✅ Responsive */
+@media (max-width: 1024px) {
+  .card-event {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .card-event {
+    width: 90%;
+    align-self: center !important;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -1036,11 +1598,11 @@ form button:hover {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: linear-gradient(135deg, #795548, #5d4037, #3e2723);
-  background-size: 200% 200%;
-  animation: waveDiagonal 10s infinite linear;
+  background: linear-gradient(135deg, #3e2723, #5d4037, #795548);
+  background-size: 10000% 10000%;
   color: black;
   overflow-x: hidden;
+  animation: waveDiagonal 12s infinite ease-in-out alternate;
 }
 
 @keyframes waveDiagonal {
@@ -1048,11 +1610,34 @@ body {
     background-position: 0% 0%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 80% 80%;
   }
   100% {
     background-position: 0% 0%;
   }
+}
+/* Pour les navigateurs basés sur WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 15, 15, 0.5);
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(8, 8, 8, 0.8);
+}
+
+/* Suppression des flèches haut/bas sur la scrollbar */
+::-webkit-scrollbar-button {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

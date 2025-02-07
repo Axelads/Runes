@@ -7,8 +7,7 @@ import ResumeAbout from "../components/ResumeAbout/ResumeAbout";
 import DernieresActus from "../components/Main/Actu/DernieresActus";
 import Agenda from "../components/Agenda/Agenda";
 import Separator from "../components/Design/Separator";
-import Footer from "../components/Layout/Footer";
-import BackToTop from "../components/Button/BackToTop"; // ✅ Import du bouton de retour en haut
+
 
 const Home = () => {
   useEffect(() => {
@@ -33,10 +32,7 @@ const Home = () => {
         <Agenda />
       </main>
 
-      {/* ✅ Ajout du composant BackToTop */}
-      <BackToTop />
-
-      <Footer />
+      
     </>
   );
 };

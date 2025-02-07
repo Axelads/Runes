@@ -4,7 +4,6 @@ import backgroundMain from "../../assets/img_Design/Background_main.webp";
 import logoEcriture from "../../assets/logo_assoc/logo_juste_Rune.webp"; 
 import ButtonJDR from "../JeuxDeRune/ButtonJDR";
 
-
 const Intro = () => {
   useEffect(() => {
     const tl = gsap.timeline({ paused: true });
@@ -34,21 +33,26 @@ const Intro = () => {
 
     tl.play(); // Lancer l'animation après l'ajout des éléments à la timeline
 
-  }, []); // Correction : Bonne fermeture du `useEffect`
+  }, []);
 
   return (
-    <section className="intro" style={{ backgroundImage: `url(${backgroundMain})` }}>
+    <section className="intro">
       <div className="overlay">
+        {/* ✅ Ajout de la div pour afficher l'image de fond */}
+        <div className="background-image">
+          <img src={backgroundMain} alt="Fond d'écran Runes" />
+        </div>
+
         <ButtonJDR />
         {/* Animation du texte */}
         <div className="animated-text">
           <h1>
             <div><span>R</span><span>.</span><span>U</span><span>.</span><span>N</span><span>.</span><span>E,</span></div>
             <div>
-                <span>Rolistes</span> <span>Unis,</span>
+                <span>Rolistes Unis,</span>
             </div>
             <div>
-              <span>Sous</span> <span>un</span> <span>nouvel</span> <span>Emblème, </span>
+              <span>Sous un nouvel Emblème, </span>
             </div>
             <div>
             <span>Depuis </span><span>1998.</span>

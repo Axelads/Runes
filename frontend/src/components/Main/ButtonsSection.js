@@ -36,13 +36,35 @@ const ButtonsSection = () => {
     );
   }, []);
 
+  useEffect(() => {
+    gsap.utils.toArray(".piece").forEach((piece) => {
+      gsap.set(piece, { transformPerspective: 1000, transformOrigin: "center" });
+  
+      gsap.to(piece, {
+        rotationY: 360, // ✅ Fait tourner l’image de 360°
+        duration: 0.6,
+        ease: "power2.out",
+        paused: true,
+      });
+  
+      piece.addEventListener("mouseenter", () => {
+        gsap.to(piece, { rotationY: 360, duration: 0.6, ease: "power2.out" });
+      });
+  
+      piece.addEventListener("mouseleave", () => {
+        gsap.to(piece, { rotationY: 0, duration: 0.6, ease: "power2.inOut" });
+      });
+    });
+  }, []);
+  
+
   return (
     <>
       <section className="buttons-section" ref={sectionRef}>
         {/* ✅ À PROPOS */}
         <Link to="/about" className="button-container" aria-label="Aller à la page À propos">
           <div className="piece-container">
-            <img src={aboutIcon} alt="À propos" className="piece" />
+            <img src={aboutIcon} alt="About" className="piece" />
           </div>
           <h2>À propos</h2>
         </Link>
@@ -50,7 +72,7 @@ const ButtonsSection = () => {
         {/* ✅ ÉVÉNEMENTS */}
         <Link to="/events" className="button-container" aria-label="Aller à la page Événements">
           <div className="piece-container">
-            <img src={eventsIcon} alt="Événements" className="piece" />
+            <img src={eventsIcon} alt="Events" className="piece" />
           </div>
           <h2>Événements</h2>
         </Link>
@@ -58,7 +80,7 @@ const ButtonsSection = () => {
         {/* ✅ ACTUALITÉ (Ouvre la page News.js) */}
         <Link to="/news" className="button-container" aria-label="Aller à la page Actualités">
           <div className="piece-container">
-            <img src={newsIcon} alt="Actualité" className="piece" />
+            <img src={newsIcon} alt="Actuality" className="piece" />
           </div>
           <h2>Actualité</h2>
         </Link>

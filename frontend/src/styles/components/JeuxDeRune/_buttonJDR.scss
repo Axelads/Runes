@@ -3,13 +3,19 @@
     padding: 10px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 10px rgba(94, 92, 92, 0.5);
     width: 400px; // ✅ Largeur fixe
     height: 170px; // ✅ Hauteur fixe pour éviter les changements de taille
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    p {
+      color: black;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
   }
   
   /* ✅ Fixe la largeur du bouton même lorsqu'il pulse */
@@ -28,6 +34,7 @@
     width: 260px; // ✅ Largeur fixe
     text-align: center;
     margin-bottom: 5px;
+    margin-top: 10px;
   }
   
   /* ✅ Empêche la pulsation d'impacter la largeur */
@@ -38,7 +45,7 @@
   .countdown {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: black;
     margin-top: 10px;
     display: flex;
     justify-content: center;
@@ -63,7 +70,7 @@
     }
   
     .btn-jdr {
-      width: 200px; // ✅ Réduction de la largeur du bouton pour ne pas être trop imposant
+      width: 250px; // ✅ Réduction de la largeur du bouton pour ne pas être trop imposant
       font-size: 1rem; // ✅ Réduction de la taille du texte
       padding: 10px 20px; // ✅ Ajuste l'espace pour rester harmonieux
     }

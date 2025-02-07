@@ -1,5 +1,15 @@
+// Import du reset css
+@use "./reset.scss";
+
+// Import style barre de recherche
+@use "./components/searchbar";
+
 // Import styles PAGES
 @use "./pages/home";
+@use './pages/news';
+@use './pages/notfound';
+@use './pages/events';
+
 
 // Import des styles de layout
 @use "./Layout/header";
@@ -20,6 +30,7 @@
 // Import styles Button 
 @use "./components/JeuxDeRune/buttonJDR";
 @use "./components/button/backToTop";
+@use "./components/button/backToHome";
 
 // Import position Agenda
 @use "./components/Agenda/agenda";
@@ -30,7 +41,8 @@
 // Import style du trait de separation de mes composants
 @use "./components/Design/separator";
 
-// Import style button
+// Import style des Cards
+@use './components/Cards/cardEvents';
 
 // Styles globaux
 * {
@@ -41,24 +53,47 @@
   
   body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #795548, #5d4037, #3e2723);
-    background-size: 200% 200%; // ✅ Étend le dégradé pour un effet fluide
-    animation: waveDiagonal 10s infinite linear; // ✅ Animation fluide et continue
+    background: linear-gradient(135deg, #3e2723, #5d4037, #795548);
+    background-size: 10000% 10000%; // permet d'eviter d'avoir une barre visible qui scroll
     color: black;
     overflow-x: hidden; // ✅ Cache la barre de scroll horizontale
+    animation: waveDiagonal 12s infinite ease-in-out alternate; // ✅ Animation plus douce et naturelle
   }
   
-  // ✅ Animation du background en diagonale
+  // ✅ Amélioration de l'animation pour éviter la bande visible
   @keyframes waveDiagonal {
     0% {
       background-position: 0% 0%;
     }
     50% {
-      background-position: 100% 100%;
+      background-position: 80% 80%;
     }
     100% {
       background-position: 0% 0%;
     }
   }
-  
-  
+
+  // ✅ Personnalisation de la barre de défilement
+  /* Pour les navigateurs basés sur WebKit (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 11px; // ✅ Réduit la largeur de la scrollbar
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; // ✅ Rend le track totalement transparent
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(15, 15, 15, 0.5); // ✅ Une barre visible mais subtile
+    border-radius: 10px; // ✅ Arrondie pour un effet plus élégant
+    transition: background 0.3s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(8, 8, 8, 0.8); // ✅ Plus visible au survol
+  }
+
+  /* Suppression des flèches haut/bas sur la scrollbar */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }

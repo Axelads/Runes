@@ -1,0 +1,32 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #d4a373;
+      font-size: 1.2rem;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+  
+      &:focus {
+        outline: none;
+        border-color: #ffdd93;
+        box-shadow: 0 0 10px rgba(255, 221, 147, 0.6);
+      }
+    }
+  }
+
+  @media (max-width: 863px) {
+    .search-container {
+        height: 30px;
+        
+    }
+    .search-bar-fixed {
+        width: 40% !important;
+    }
+  }
+  
