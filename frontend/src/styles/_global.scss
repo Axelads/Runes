@@ -9,6 +9,7 @@
 @use './pages/news';
 @use './pages/notfound';
 @use './pages/events';
+@use './pages/privacyPolicy';
 
 
 // Import des styles de layout
@@ -32,17 +33,30 @@
 @use "./components/button/backToTop";
 @use "./components/button/backToHome";
 
+// Style bandeau
+@use "./components/Bandeau/membershipBanner";
+
 // Import position Agenda
 @use "./components/Agenda/agenda";
 
 // Import styles card Resume association
-@use "./components/ResumeAbout/resumeAbout";
+@use "./components/Resume/resumeAbout";
+@use "./components/Resume/resumeMultiTables";
+
+// Import card sponsoring
+@use "./components/Sponsoring/sponsoringOfTheMonth";
+
 
 // Import style du trait de separation de mes composants
 @use "./components/Design/separator";
 
 // Import style des Cards
-@use './components/Cards/cardEvents';
+@use "./components/Cards/Events/cardEvents";
+@use "./components/Cards/Events/multiTables";
+@use "./components/Cards/Events/pastEvents";
+
+// Garder le contact
+@use "./components/KeepContact/keepContact";
 
 // Styles globaux
 * {
@@ -58,6 +72,10 @@
     color: black;
     overflow-x: hidden; // ✅ Cache la barre de scroll horizontale
     animation: waveDiagonal 12s infinite ease-in-out alternate; // ✅ Animation plus douce et naturelle
+
+    .tarteaucitronAlertSmallBottom {
+      display: none !important;
+    }
   }
   
   // ✅ Amélioration de l'animation pour éviter la bande visible

@@ -13,7 +13,7 @@ const BackToTop = () => {
   useEffect(() => {
     ScrollTrigger.create({
       trigger: "footer",
-      start: "top 99%", // ✅ Déclenche quand 15% du footer est visible
+      start: "top 99%", // ✅ S'affiche quand on atteint presque le footer
       onEnter: () => setVisible(true),
       onLeaveBack: () => setVisible(false),
     });
@@ -25,7 +25,7 @@ const BackToTop = () => {
         buttonRef.current,
         { y: 0 },
         {
-          y: -10, // ✅ Animation sautillante
+          y: -10, // ✅ Effet de "rebond"
           duration: 0.6,
           ease: "power1.inOut",
           yoyo: true,
@@ -40,12 +40,13 @@ const BackToTop = () => {
   const scrollToTop = () => {
     console.log("🔝 ScrollToTop déclenché !");
 
+    const isMobile = window.innerWidth <= 768; // ✅ Détecte si on est sur mobile
+
     gsap.to(window, {
-      scrollTo: { y: "body", autoKill: false }, // ✅ Assure un scroll complet
-      duration: 1.3,
+      scrollTo: { y: "body", autoKill: false },
+      duration: isMobile ? 1.3 : 0.1, // ✅ Plus rapide sur Desktop
       ease: "power2.out",
       onComplete: () => {
-        // ✅ Fallback pour Safari / certains navigateurs mobiles
         console.log("✅ Scroll terminé !");
         document.documentElement.scrollTop = 0;
       },

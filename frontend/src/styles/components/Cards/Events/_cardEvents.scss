@@ -1,0 +1,73 @@
+.card-event {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 900px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    h2 {
+      font-family: Playfair Display, serif;
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-family: IM Fell English, serif;
+    }
+  
+    .event-list {
+      list-style: none;
+      padding: 0;
+  
+      .event-item {
+        background: rgba(240, 240, 240, 0.8);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        margin-bottom: 10px;
+  
+        &:hover {
+          transform: scale(1.02);
+        }
+  
+        strong {
+          display: block;
+          font-size: 1.1rem;
+        }
+  
+        .event-button {
+          background: linear-gradient(45deg, #ff5733, #ff8d1a);
+          border: none;
+          color: white;
+          font-weight: bold;
+          padding: 5px 10px;
+          border-radius: 8px;
+          cursor: pointer;
+          margin-top: 10px;
+          transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  
+          &:hover {
+            background: linear-gradient(45deg, #ff8d1a, #ff5733);
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+  
+  /* ✅ Responsive */
+  @media (max-width: 768px) {
+    .card-event {
+      width: 100%;
+    }
+  }
+  

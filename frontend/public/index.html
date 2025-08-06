@@ -4,34 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ✅ TarteAuCitron (Version Open-Source & Hébergée en local) -->
+    <script type="text/javascript" src="../tarteaucitron.js/tarteaucitron.min.js"></script>
+    <script type="text/javascript">
+      tarteaucitron.init({
+          privacyUrl: "/politique-de-confidentialite", // 🔗 URL de la page de politique
+          hashtag: "#tarteaucitron",
+          cookieName: "tarteaucitron",
+          orientation: "bottom", // Position de la bannière (bottom ou top)
+          showAlertSmall: true, // Petit bouton flottant (true/false)
+          cookieslist: true, // Liste des cookies affichée
+          adblocker: false, // Détection d'AdBlock
+          AcceptAllCta: true, // Bouton "Tout accepter"
+          highPrivacy: false, // Mode haute confidentialité
+          handleBrowserDNTRequest: false, // Ne pas suivre le DNT du navigateur
+          removeCredit: true, // Supprime le crédit Tarteaucitron
+          moreInfoLink: true, // Lien "En savoir plus"
+          useExternalCss: false, // Utilisation d'un CSS personnalisé
+          showIcon: false // 🔥 Désactive l'icône "Gestion des services"
+      });
+  </script>
+
+     <!-- ✅ Google Analytics (géré par TarteAuCitron avec Consent Mode) -->
+     <script type="text/javascript">
+  tarteaucitron.services.analytics = {
+      "key": "analytics",
+      "type": "analytic",
+      "name": "Google Analytics",
+      "uri": "https://support.google.com/analytics/answer/6004245",
+      "needConsent": true,
+      "cookies": ["_ga", "_gid", "_gat", "_gcl_au"],
+      "js": function () {
+          "use strict";
+          if (tarteaucitron.state.analytics === true) {
+
+              // 👉 Injection du script gtag.js
+              var script = document.createElement('script');
+              script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZMLED06EZ2";
+              script.async = true;
+              document.head.appendChild(script);
+
+              // 👉 Initialisation du Consent Mode v2
+              window.dataLayer = window.dataLayer || [];
+              function gtag() { dataLayer.push(arguments); }
+              window.gtag = gtag;
+
+              gtag("consent", "default", {
+                  "ad_storage": "denied",
+                  "analytics_storage": "denied",
+                  "functionality_storage": "denied",
+                  "security_storage": "granted"
+              });
+
+              // 👉 Chargement config GA une fois le consentement obtenu
+              gtag("js", new Date());
+              gtag("config", "G-ZMLED06EZ2", { anonymize_ip: true });
+          }
+      }
+  };
+  (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+</script>
+
     <!-- 🌍 META GÉNÉRALES -->
-    <meta name="description" content="Découvrez l'association Runes - Rolistes Unis : événements, partage et passion du JDR. Rejoignez-nous !">
+    <meta name="description" content="Découvrez l'association Rune - Rolistes Unis : événements, partage et passion du JDR. Rejoignez-nous !">
     <meta name="keywords" content="RUNE, rune toulon, rune, Rune toulon, rune var, rune la valette, rune la Valette-du-Var,rune association, association, association jeux de rôle, JDR, jeux de rôles, Rôlistes Unis, jeux de société, événements, communauté rôlistes, convention jeux, convention jeux de role, convention club jeux Toulon">
-    <meta name="author" content="Runes - Rolistes Unis">
+    <meta name="author" content="Rune - Rolistes Unis">
 
     <!-- 🚀 OPEN GRAPH (Facebook, LinkedIn, Instagram, WhatsApp, Discord...) -->
-    <meta property="og:title" content="Runes, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
+    <meta property="og:title" content="Rune, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
     <meta property="og:description" content="Découvrez nos événements, nos valeurs et notre passion du jeu de rôle. Rejoignez l'aventure !">
     <meta property="og:image" content="%PUBLIC_URL%/Logo_Runes_Reseaux.webp">
-    <meta property="og:image:alt" content="Logo de l'association Runes - Rolistes Unis">
+    <meta property="og:image:alt" content="Logo de l'association Rune - Rolistes Unis">
     <meta property="og:url" content="https://rolistesunis.fr">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Runes - Rolistes Unis">
+    <meta property="og:site_name" content="Rune - Rolistes Unis">
 
     <!-- 🐦 TWITTER (X) META TAGS -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Runes, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
+    <meta name="twitter:title" content="Rune, Rolistes Unis sous un nouvel Emblème - Passion, Partage, Convivialité du JDR">
     <meta name="twitter:description" content="Rejoignez notre communauté et découvrez nos événements JDR !">
     <meta name="twitter:image" content="%PUBLIC_URL%/Logo_Runes_Reseaux.webp">
-    <meta name="twitter:image:alt" content="Logo de l'association Runes">
+    <meta name="twitter:image:alt" content="Logo de l'association Rune">
     <meta name="twitter:site" content="@NomDeTonCompteX">
 
     <!-- 🔎 META POUR LE SEO GOOGLE -->
-    <meta itemprop="name" content="Runes - Rolistes Unis">
-    <meta itemprop="description" content="Rejoignez notre association dédiée au jeu de rôle et à la convivialité ! Runes - Rolistes Unis Sous un Nouvel Emblème.">
+    <meta itemprop="name" content="Rune - Rolistes Unis">
+    <meta itemprop="description" content="Rejoignez notre association dédiée au jeu de rôle et à la convivialité ! Rune - Rolistes Unis Sous un Nouvel Emblème.">
     <meta itemprop="image" content="%PUBLIC_URL%/Logo_Runes_Reseaux.webp">
 
-    <title>Runes - Rolistes Unis</title>
+    <title>Rune - Rolistes Unis</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="%PUBLIC_URL%/logo-sans-ecriture.webp">
@@ -50,6 +111,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
     </noscript>
+
+    <link rel="canonical" href="https://www.rolistesunis.fr/page-principale">
 
     <!-- ✅ SCHEMA ORG (Données structurées pour SEO Local) -->
     <script type="application/ld+json">
@@ -87,6 +150,7 @@
       "priceRange": "Gratuit"
     }
     </script>
+
 
 </head>
 <body>

@@ -1,6 +1,6 @@
 .card {
   width: 100%; // ✅ Par défaut, elle prendra la largeur max de son conteneur
-  max-width: 400px; // ✅ Limite la taille max pour éviter qu'elles ne soient trop grandes
+  max-width: 350px; // ✅ Limite la taille max pour éviter qu'elles ne soient trop grandes
   height: auto; // ✅ Ajuste la hauteur automatiquement
   background: white;
   border-radius: 10px;

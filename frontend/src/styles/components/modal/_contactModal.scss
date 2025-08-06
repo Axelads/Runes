@@ -110,4 +110,21 @@
     }
   }
 
+  @media (max-width: 684px) {
+    .modal-content {
+      width: 350px;
+
+      .social-links{
+        flex-wrap: wrap;
+      }
+    
+    form {
+      textarea {
+        height: 100px;
+      }
+    }
+
+  }
+}
+
   

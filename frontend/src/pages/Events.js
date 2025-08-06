@@ -1,34 +1,30 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import CardEvent from "../components/Cards/CardEvents"; 
-import pieceVerte from "../assets/image_piece/piece_verte.webp";
-import BackToHome from "../components/Button/BackToHome"; 
-import Separator from "../components/Design/Separator"; 
-import SearchBar from "../components/SearchBar";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap } from "gsap";
+import CardEvents from "../components/Cards/Events/CardEvents";
+import PastEvents from "../components/Cards/Events/PastEvents";
+import MultiTables from "../components/Cards/Events/MultiTables";
+import BackToHome from "../components/Button/BackToHome";
+import KeepContact from "../components/KeepContact/KeepContact";
+import Agenda from "../components/Agenda/Agenda";
 
 const Events = () => {
-  const [events, setEvents] = useState([]);
-  const [filteredEvents, setFilteredEvents] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [pastEventsByYear, setPastEventsByYear] = useState({});
+  const [multiTableUpcoming, setMultiTableUpcoming] = useState([]);
+  const [multiTablePast, setMultiTablePast] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  const eventRefs = useRef({}); // ✅ Stocke les références pour le scroll
-  const cardsContainerRef = useRef(null); // ✅ Référence pour l'animation GSAP
 
-  const keywords = [
-    "Multi-Tables", "Shadowrun", "Spire", "Table de campagne", "Convention",
-    "Kingmaker", "Colere-des-justes", "Star-wars", "L'affaire-deluze",
-    "Vampire", "Loup-garou", "L'anneau-unique", "Soleil-noir",
-    "Mage-dement", "Colere-des-justes"
-  ];
+  const backToHomeRef = useRef(null);
+  const cardsRef = useRef([]); // ✅ Référence pour l'animation GSAP
 
   const API_KEY = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
   const CALENDAR_ID = process.env.REACT_APP_GOOGLE_CALENDAR_ID;
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // ✅ Fait défiler la page tout en haut dès son ouverture
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -36,9 +32,66 @@ const Events = () => {
         const response = await axios.get(
           `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?key=${API_KEY}`
         );
-        setEvents(response.data.items || []);
-        setFilteredEvents(response.data.items || []);
+
+        console.log("Événements bruts récupérés :", response.data.items);
+
+        if (!response.data.items) {
+          setError("Aucun événement trouvé.");
+          return;
+        }
+
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+
+        const getEventDate = (event) => new Date(event.start?.dateTime || event.start?.date);
+
+        const sortedEvents = response.data.items
+          .filter(event => event.start)
+          .sort((a, b) => getEventDate(a) - getEventDate(b));
+
+          const isMultiTables = (summary) => {
+            return /multi[\s-]?tables/i.test(summary);
+          };
+          
+          const filteredEvents = sortedEvents.filter(event => !isMultiTables(event.summary));
+          const multiTableEvents = sortedEvents.filter(event => isMultiTables(event.summary));
+
+        setUpcomingEvents(filteredEvents.filter(event => getEventDate(event) >= now));
+
+        const groupedPastEvents = filteredEvents
+          .filter(event => getEventDate(event) < now)
+          .reduce((acc, event) => {
+            const year = getEventDate(event).getFullYear();
+            if (!acc[year]) acc[year] = [];
+            acc[year].push(event);
+            return acc;
+          }, {});
+
+        setPastEventsByYear(
+          Object.keys(groupedPastEvents)
+            .sort((a, b) => b - a)
+            .reduce((obj, key) => ({ ...obj, [key]: groupedPastEvents[key] }), {})
+        );
+
+        setMultiTableUpcoming(multiTableEvents.filter(event => getEventDate(event) >= now));
+
+        const groupedMultiTablePast = multiTableEvents
+          .filter(event => getEventDate(event) < now)
+          .reduce((acc, event) => {
+            const year = getEventDate(event).getFullYear();
+            if (!acc[year]) acc[year] = [];
+            acc[year].push(event);
+            return acc;
+          }, {});
+
+        setMultiTablePast(
+          Object.keys(groupedMultiTablePast)
+            .sort((a, b) => b - a)
+            .reduce((obj, key) => ({ ...obj, [key]: groupedMultiTablePast[key] }), {})
+        );
+
       } catch (err) {
+        console.error("Erreur API Google Calendar :", err);
         setError("Erreur lors du chargement des événements");
       } finally {
         setLoading(false);
@@ -48,99 +101,33 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  // ✅ Animation GSAP au chargement des cartes
-  useEffect(() => {
-    if (filteredEvents.length > 0) {
-      gsap.fromTo(
-        ".card-event",
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: cardsContainerRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    }
-  }, [filteredEvents]);
-
-  // ✅ Fonction de recherche et scroll vers le premier match
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      setFilteredEvents(events);
-    } else {
-      const lowerCaseQuery = searchQuery.toLowerCase();
-      const filtered = events.filter(event =>
-        event.summary.toLowerCase().includes(lowerCaseQuery) ||
-        (event.description && event.description.toLowerCase().includes(lowerCaseQuery))
-      );
-      setFilteredEvents(filtered);
-
-      if (filtered.length > 0) {
-        setTimeout(() => {
-          const firstEvent = filtered[0].id; // ✅ Prendre le premier ID correspondant
-          if (eventRefs.current[firstEvent]) {
-            eventRefs.current[firstEvent].scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        }, 300);
-      }
-    }
-  }, [searchQuery, events]);
-
-  const groupedEvents = keywords.reduce((acc, keyword) => {
-    acc[keyword] = events.filter(event =>
-      event.summary.toLowerCase().includes(keyword.toLowerCase())
-    );
-    return acc;
-  }, {});
-
   return (
-    <div>
-      <BackToHome />
-
-      {/* ✅ Barre de recherche FIXÉE en haut à droite */}
-      <div className="search-bar-fixed">
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} placeholder="Rechercher un événement..." />
+    <div className="events-container">
+      {/* ✅ Bouton de retour animé */}
+      <div ref={backToHomeRef}>
+        <BackToHome />
       </div>
 
-      <div className="events-container">
-        {/* ✅ TITRE AVEC IMAGES ENCADRANTES */}
-        <div className="event-title">
-          <img src={pieceVerte} alt="Décoration gauche" className="title-icon left" />
-          <h1>Événements à venir</h1>
-          <img src={pieceVerte} alt="Décoration droite" className="title-icon right" />
+      <h1>Événements</h1>
+
+      {loading && <p>Chargement des événements...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {/* ✅ Partie avec les cartes alignées */}
+      <div className="events-grid">
+        <div ref={(el) => (cardsRef.current[0] = el)}>
+          <CardEvents title="Parties à Venir" events={upcomingEvents} />
         </div>
-
-        {loading && <p>Chargement des événements...</p>}
-        {error && <p style={{ color: "red" }}>{error}</p>}
-
-        <div className="events-list" ref={cardsContainerRef}>
-          {Object.entries(groupedEvents).map(([keyword, eventList], index) =>
-            eventList.length > 0 ? (
-              <React.Fragment key={keyword}>
-                <div 
-                  ref={(el) => (eventRefs.current[eventList[0].id] = el)} // ✅ Associer ref dynamique
-                  className={`event-wrapper ${index % 2 === 0 ? "left" : "right"}`}
-                >
-                  <CardEvent title={keyword} events={eventList} />
-                </div>
-
-                {index < Object.entries(groupedEvents).length - 1 && (
-                  <div className="separator-container">
-                    <Separator />
-                  </div>
-                )}
-              </React.Fragment>
-            ) : null
-          )}
+        <div ref={(el) => (cardsRef.current[1] = el)}>
+          <MultiTables title="Multi-Tables" upcoming={multiTableUpcoming} past={multiTablePast} />
         </div>
       </div>
+      {/* ✅ Carte des événements passés centrée en dessous */}
+      <div className="events-past" ref={(el) => (cardsRef.current[2] = el)}>
+        <PastEvents title="Événements Passés" pastEventsByYear={pastEventsByYear} />
+      </div>
+      <KeepContact />
+      <Agenda />
     </div>
   );
 };

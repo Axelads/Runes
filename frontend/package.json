@@ -16,6 +16,7 @@
   "dependencies": {
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
+    "@react-google-maps/api": "^2.20.6",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "emailjs-com": "^3.2.0",

@@ -1,10 +1,12 @@
-// src/components/Card.js
 import React, { useEffect } from "react";
 
+const decodeHtmlEntities = (text) => {
+  const doc = new DOMParser().parseFromString(text, "text/html");
+  return doc.body.textContent || "";
+};
+
 const Card = ({ image, title, excerpt, isEmpty }) => {
-  useEffect(() => {
-    
-  }, [image]);
+  useEffect(() => {}, [image]);
 
   return (
     <div className={`card ${isEmpty ? "empty" : ""}`}>
@@ -27,7 +29,7 @@ const Card = ({ image, title, excerpt, isEmpty }) => {
         )}
       </div>
       <div className="card-content">
-        <h3>{title}</h3>
+        <h3>{decodeHtmlEntities(title)}</h3> {/* ✅ Nettoie les caractères spéciaux */}
         <div dangerouslySetInnerHTML={{ __html: excerpt }} />
       </div>
     </div>

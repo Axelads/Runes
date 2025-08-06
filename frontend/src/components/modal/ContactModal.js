@@ -5,25 +5,28 @@ import { FaDiscord, FaInstagram, FaFacebook, FaForumbee } from "react-icons/fa6"
 
 const ContactModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
+  const overlayRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  // ✅ Désactive le scroll quand la modale est ouverte
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Bloque le scroll
+      gsap.to(overlayRef.current, { opacity: 1, duration: 0.3 });
+      gsap.to(modalRef.current, { opacity: 1, scale: 1, duration: 0.3 });
+    } else {
+      document.body.style.overflow = "auto"; // Rétablit le scroll
+    }
+  }, [isOpen]);
+
   // ✅ Réinitialisation du formulaire quand la modale se ferme
   useEffect(() => {
     if (!isOpen) {
       setFormData({ name: "", email: "", message: "" });
-    }
-  }, [isOpen]);
-
-  // ✅ Animation GSAP à l'ouverture/fermeture avec sécurité
-  useEffect(() => {
-    if (isOpen && modalRef.current) {
-      gsap.to(modalRef.current, { opacity: 1, scale: 1, duration: 0.3 });
-    } else if (modalRef.current) {
-      gsap.to(modalRef.current, { opacity: 0, scale: 0.8, duration: 0.3 });
     }
   }, [isOpen]);
 
@@ -67,7 +70,7 @@ const ContactModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" ref={overlayRef} onClick={onClose}>
       <div className="modal-content" ref={modalRef} onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={onClose}>✖</button>
         <h2>Nous Contacter</h2>

@@ -1,0 +1,124 @@
+.sponsoring-of-the-month {
+  width: 85%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 50px auto;
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    align-self: flex-start;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-top: 10px;
+    font-family: "Playfair Display", serif;
+  }
+
+  .sponsoring-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+  }
+
+  .sponsoring-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    p {
+      color: white;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .sponsoring-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+
+      a {
+        color: white;
+        background: rgba(40, 167, 69, 0.2);
+        border: 1px solid #28a745;
+        padding: 10px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.3s;
+
+        &:hover {
+          background: #28a745;
+          color: black;
+        }
+      }
+    }
+
+    button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #28a745, #218838);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease-in-out;
+      margin-top: 10px;
+
+      &:hover {
+        transform: scale(1.1);
+        background: linear-gradient(45deg, #218838, #28a745);
+      }
+    }
+  }
+}
+
+/* ✅ Responsive */
+@media screen and (max-width: 1440px) {
+  .sponsoring-of-the-month {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .sponsoring-of-the-month {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .sponsoring-of-the-month {
+    width: 95%;
+
+    .sponsoring-content {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sponsoring-of-the-month {
+    width: 85%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

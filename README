@@ -22,3 +22,7 @@ React Icons pour les icônes sociales :
 npm install react-icons
 
 ajout de emailjs pour la gestion du formulaire envoie de mail.
+
+Axios pour requete http vers une api // pas besoin de fetch .json (a essayer)
+
+Bootsrap pour l'utilisation des collapse
