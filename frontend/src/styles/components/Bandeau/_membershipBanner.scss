@@ -18,6 +18,12 @@
       }
     }
   
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
     .banner-button {
       background: white;
       color: #2e7d32;
@@ -26,10 +32,44 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
-  
+
       &:hover {
         background: #1b5e20;
         color: white;
+      }
+    }
+
+    .banner-qr-code {
+      width: 60px;
+      height: 60px;
+      background: white;
+      padding: 4px;
+      border-radius: 6px;
+      object-fit: contain;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .banner-qr-toggle {
+      display: none;
+      background: white;
+      color: #2e7d32;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #1b5e20;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        display: block;
       }
     }
   
@@ -58,4 +98,69 @@
       }
     }
   }
-  
+
+  .qr-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .qr-popup {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    max-width: 90%;
+    width: 300px;
+
+    h3 {
+      margin: 0 0 20px;
+      color: #2e7d32;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .qr-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: 0.3s;
+
+    &:hover {
+      color: #2e7d32;
+    }
+  }
+
+  .qr-popup-link {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+
+    &:hover {
+      background: #1b5e20;
+    }
+  }

@@ -50,7 +50,7 @@ const SponsoringOfTheMonth = () => {
       {/* 📚 Bragelonne */}
       <div className="sponsoring-content">
         <img
-          src="https://www.bragelonne.fr/wp-content/uploads/2022/12/logo-bragelonne-blanc.svg"
+          src="https://www.loumina.fr/design/maisons-d-edition/bragelonne.png"
           alt="Bragelonne"
           className="sponsoring-image"
         />

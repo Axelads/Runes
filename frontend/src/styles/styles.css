@@ -211,6 +211,137 @@ main .agenda-container {
   font-size: 1rem;
   color: #222;
 }
+.container-article article .article-wrapper .container-paragraphe .wp-block-paragraph,
+.container-article article .article-wrapper .container-paragraphe p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-list,
+.container-article article .article-wrapper .container-paragraphe ul {
+  list-style: disc;
+  padding-left: 25px;
+  margin: 15px 0;
+  text-align: left;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-list li,
+.container-article article .article-wrapper .container-paragraphe ul li {
+  font-size: 1rem;
+  padding: 5px 0;
+  line-height: 1.5;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-columns .wp-block-column {
+  flex: 1;
+  min-width: 200px;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-gallery .wp-block-image {
+  flex: none;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-gallery .wp-block-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-gallery figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image {
+  margin: 20px 0;
+  width: auto;
+  height: auto;
+  flex: none;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.aligncenter, .container-article article .article-wrapper .container-paragraphe .wp-block-image.is-style-default,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.aligncenter,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.is-style-default {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.aligncenter img, .container-article article .article-wrapper .container-paragraphe .wp-block-image.is-style-default img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.aligncenter img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.is-style-default img {
+  margin: 0 auto;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.alignleft,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.alignleft {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.alignright,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.alignright {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.size-large img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.size-large img {
+  max-width: 100%;
+  width: auto;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.size-medium img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.size-medium img {
+  max-width: 300px;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image.size-full img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image.size-full img {
+  max-width: 100%;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image:not(.alignleft):not(.alignright) img,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image:not(.alignleft):not(.alignright) img {
+  margin: 0 auto;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-image figcaption,
+.container-article article .article-wrapper .container-paragraphe figure.wp-block-image figcaption {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 8px;
+  text-align: center;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-group {
+  margin: 15px 0;
+}
+.container-article article .article-wrapper .container-paragraphe .wp-block-group.is-layout-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+.container-article article .article-wrapper .container-paragraphe a {
+  color: #2e7d32;
+  text-decoration: underline;
+}
+.container-article article .article-wrapper .container-paragraphe a:hover {
+  color: #1b5e20;
+}
 .container-article article .article-wrapper ul {
   list-style: none;
   padding: 0;
@@ -235,7 +366,7 @@ main .agenda-container {
   font-weight: bold;
 }
 
-/* ✅ Responsive - Sur mobile l’image passe au-dessus */
+/* ✅ Responsive - Sur mobile l'image passe au-dessus */
 @media (max-width: 1024px) {
   .container-article article {
     flex-direction: column;
@@ -255,6 +386,15 @@ main .agenda-container {
   }
   .container-article article .article-wrapper .wp-block-group.is-content-justification-right p {
     font-size: 1.2rem;
+  }
+  .container-article article .article-wrapper .container-paragraphe .wp-block-columns {
+    flex-direction: column;
+  }
+  .container-article article .article-wrapper .container-paragraphe .wp-block-columns .wp-block-column {
+    min-width: 100%;
+  }
+  .container-article article .article-wrapper .container-paragraphe .wp-block-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
 @media (max-width: 694px) {
@@ -1539,6 +1679,11 @@ form button:hover {
 .membership-banner .banner-content p {
   margin: 0;
 }
+.membership-banner .banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .membership-banner .banner-button {
   background: white;
   color: #2e7d32;
@@ -1551,6 +1696,39 @@ form button:hover {
 .membership-banner .banner-button:hover {
   background: #1b5e20;
   color: white;
+}
+.membership-banner .banner-qr-code {
+  width: 60px;
+  height: 60px;
+  background: white;
+  padding: 4px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .membership-banner .banner-qr-code {
+    display: none;
+  }
+}
+.membership-banner .banner-qr-toggle {
+  display: none;
+  background: white;
+  color: #2e7d32;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.membership-banner .banner-qr-toggle:hover {
+  background: #1b5e20;
+  color: white;
+}
+@media (max-width: 768px) {
+  .membership-banner .banner-qr-toggle {
+    display: block;
+  }
 }
 .membership-banner.hidden {
   background: transparent;
@@ -1573,6 +1751,68 @@ form button:hover {
 .membership-banner .floating-button:hover {
   background: #1b5e20;
   transform: scale(1.1);
+}
+
+.qr-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.qr-popup {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  max-width: 90%;
+  width: 300px;
+}
+.qr-popup h3 {
+  margin: 0 0 20px;
+  color: #2e7d32;
+}
+.qr-popup img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  height: auto;
+}
+
+.qr-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: 0.3s;
+}
+.qr-popup-close:hover {
+  color: #2e7d32;
+}
+
+.qr-popup-link {
+  display: inline-block;
+  background: #2e7d32;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.qr-popup-link:hover {
+  background: #1b5e20;
 }
 
 .agenda-container {
