@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { gsap } from "gsap/dist/gsap";;
 
 const ButtonJDR = () => {
-  const targetDate = new Date("202-09-1T00:00:00"); // 📌 Date cible de l'événement (à modifier)
+  const targetDate = new Date("2026-09-11T00:00:00"); // 📌 Date cible de l'événement (à modifier)
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   function calculateTimeLeft() {

@@ -956,9 +956,22 @@ main .agenda-container {
 }
 .footer .footer-copyright {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-align: center;
   margin-top: 20px;
   font-size: 0.9rem;
+}
+.footer .footer-copyright .axel-logo-link {
+  display: inline-flex;
+  line-height: 0;
+  transition: transform 0.4s ease-in-out;
+}
+.footer .footer-copyright .axel-logo-link:hover {
+  transform: scale(1.08);
 }
 .footer .footer-copyright p {
   color: white;

@@ -7,6 +7,7 @@ import sloganRune from "../../assets/slogan/Slogan_Rune.webp";
 import { FaDiscord, FaInstagram, FaFacebookF, FaEnvelope, FaGlobe, FaCopyright, FaForumbee } from "react-icons/fa6";
 
 import ContactModal from "../modal/ContactModal"; // ✅ Import de la modale
+import AxelLogo from "./AxelLogo"; // ✅ Logo Axel Grégoire avec bulles tournantes
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // ✅ Gestion de la modale
@@ -82,6 +83,15 @@ const Footer = () => {
 
       {/* 🟢 Section Copyright */}
       <div className="footer-copyright">
+        <a
+          href="https://axelgregoire.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Site d'Axel Grégoire"
+          className="axel-logo-link"
+        >
+          <AxelLogo size={70} smallDotSize={3} bigDotSize={5} invertLogo />
+        </a>
         <p>
           <FaCopyright /> 2025 - Fait par{" "}
           <a href="https://axelgregoire.fr/" target="_blank" rel="noopener noreferrer">
