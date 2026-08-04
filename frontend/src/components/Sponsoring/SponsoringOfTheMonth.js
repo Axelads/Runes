@@ -19,7 +19,7 @@ const SponsoringOfTheMonth = () => {
       {/* 🧵 Atelier des Griffons */}
       <div className="sponsoring-content">
         <img
-          src="http://www.image-heberg.fr/files/1754459677724502362.jpg"
+          src="https://www.image-heberg.fr/files/1754459677724502362.jpg"
           alt="Atelier des Griffons"
           className="sponsoring-image"
         />

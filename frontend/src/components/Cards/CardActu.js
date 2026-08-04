@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import DOMPurify from "dompurify";
 
 const decodeHtmlEntities = (text) => {
   const doc = new DOMParser().parseFromString(text, "text/html");
@@ -30,7 +31,7 @@ const Card = ({ image, title, excerpt, isEmpty }) => {
       </div>
       <div className="card-content">
         <h3>{decodeHtmlEntities(title)}</h3> {/* ✅ Nettoie les caractères spéciaux */}
-        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(excerpt) }} />
       </div>
     </div>
   );
